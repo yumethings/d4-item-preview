@@ -1,4 +1,5 @@
 {
+	"homepage": "https://yumethings.github.io/d4-item-preview/",
 	"name": "my-app",
 	"version": "0.1.0",
 	"private": true,
@@ -15,6 +16,8 @@
 	},
 	"scripts": {
 		"start": "react-scripts start",
+		"predeploy": "npm run build:prod",
+		"deploy": "gh-paghes -d build",
 		"build": "react-scripts build",
 		"build:prod": "react-scripts build --prod",
 		"test": "react-scripts test",
@@ -49,6 +52,7 @@
 		"@types/react-dom": "^18.0.11",
 		"eslint": "^8.37.0",
 		"eslint-config-prettier": "^8.8.0",
+		"gh-pages": "^5.0.0",
 		"prettier": "^2.8.7"
 	}
 }
