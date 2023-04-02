@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/d4-item-preview/static/css/main.1d766016.css",
+    "main.js": "/d4-item-preview/static/js/main.c4c8033f.js",
+    "index.html": "/d4-item-preview/index.html",
+    "main.1d766016.css.map": "/d4-item-preview/static/css/main.1d766016.css.map",
+    "main.c4c8033f.js.map": "/d4-item-preview/static/js/main.c4c8033f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1d766016.css",
+    "static/js/main.c4c8033f.js"
+  ]
+}
