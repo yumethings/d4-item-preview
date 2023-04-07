@@ -1,10 +1,9 @@
-import { Grid, IconButton, Paper, Stack, ToggleButton, ToggleButtonGroup, Typography } from "@mui/material";
+import { Grid, IconButton, Paper, Stack } from "@mui/material";
 import { NightsStay, LightModeRounded } from "@mui/icons-material";
 import { ClassName, ItemType } from "../types/types";
 import { useThemeContext } from "../context/ThemeContext";
-import { today } from "../utilities/dateUtilities";
-import { differenceInCalendarDays } from "date-fns";
-import { useEffect, useState } from "react";
+import { TimerInfo } from "./TimerInfo";
+import { OptionToggleButtonGroup } from "./OptionToggleButtonGroup";
 
 interface ControlsProps {
 	onChange: (_e: React.MouseEvent<HTMLElement, MouseEvent>, newValue: ClassName) => void;
@@ -24,47 +23,16 @@ export const Controls = ({
 	itemOptions,
 }: ControlsProps) => {
 	const { themeMode, toggleThemeMode } = useThemeContext();
-	const [daysLeftUntilRelease, setDaysLeftUntilRelease] = useState<number>(
-		differenceInCalendarDays(new Date("2023-06-02"), today()),
-	);
-	const [counts, setCounts] = useState<number>(0);
-
-	useEffect(() => {
-		const id = setTimeout(() => {
-			setDaysLeftUntilRelease(differenceInCalendarDays(new Date("2023-06-02"), today()));
-		}, 3600000);
-
-		return () => {
-			clearTimeout(id);
-		};
-	}, [daysLeftUntilRelease]);
-
-	useEffect(() => {
-		const id = setTimeout(() => {
-			setCounts((prevState) => prevState + 1);
-		}, 1000);
-
-		return () => clearTimeout(id);
-	}, [counts]);
 
 	return (
 		<Paper elevation={3} sx={{ marginBottom: 3 }}>
 			<Stack>
 				<Stack direction="row" justifyContent={"space-between"} alignItems={"center"}>
 					<Grid item sx={{ marginLeft: 1 }}>
-						<Paper elevation={3} sx={{ padding: 1 }}>
-							<Typography>{`${daysLeftUntilRelease} days left until early-access`}</Typography>
-							<Typography>{`You have been on this page for ${counts} seconds`}</Typography>
-						</Paper>
+						<TimerInfo />
 					</Grid>
 					<Grid item>
-						<ToggleButtonGroup color="primary" exclusive value={selectedClass} onChange={onChange}>
-							{options.map((option, idx) => (
-								<ToggleButton key={idx} value={option}>
-									{option}
-								</ToggleButton>
-							))}
-						</ToggleButtonGroup>
+						<OptionToggleButtonGroup value={selectedClass} options={options} onChange={onChange} />
 					</Grid>
 					<Grid item>
 						<IconButton sx={{ margin: 1 }} onClick={toggleThemeMode} color="inherit">
@@ -74,13 +42,7 @@ export const Controls = ({
 				</Stack>
 				{selectedClass && (
 					<Grid item>
-						<ToggleButtonGroup color="primary" exclusive value={selectedItemType} onChange={setSelectedItemType}>
-							{itemOptions.map((option, idx) => (
-								<ToggleButton key={idx} value={option}>
-									{option}
-								</ToggleButton>
-							))}
-						</ToggleButtonGroup>
+						<OptionToggleButtonGroup value={selectedItemType} options={itemOptions} onChange={setSelectedItemType} />
 					</Grid>
 				)}
 			</Stack>
