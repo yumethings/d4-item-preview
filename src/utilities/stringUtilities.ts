@@ -17,7 +17,7 @@ export type VariableKeys =
 	| `Affix."Static Value 1"`
 	| `Affix."Static Value 2"`;
 
-export const variableKeys = [
+export const variableKeys: VariableKeys[] = [
 	"Affix_Flat_Value_1",
 	"Affix_Flat_Value_2",
 	"Affix_Value_1",
