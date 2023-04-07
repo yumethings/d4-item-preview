@@ -5,7 +5,7 @@ export const useFetchJsonData = (filename: string) => {
 	const [data, setData] = useState<Data | null>(null);
 
 	useEffect(() => {
-		fetch(filename)
+		fetch(`${process.env.PUBLIC_URL}/${filename}`)
 			.then((res) => res.json())
 			.then((parsedData) => {
 				setData(parsedData);

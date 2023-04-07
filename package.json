@@ -1,6 +1,6 @@
 {
 	"homepage": "https://yumethings.github.io/d4-item-preview/",
-	"name": "my-app",
+	"name": "d4-item-preview",
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
