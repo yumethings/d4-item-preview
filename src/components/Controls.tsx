@@ -48,7 +48,7 @@ export const Controls = ({
 	}, [counts]);
 
 	return (
-		<Paper elevation={3}>
+		<Paper elevation={3} sx={{ marginBottom: 3 }}>
 			<Stack>
 				<Stack direction="row" justifyContent={"space-between"} alignItems={"center"}>
 					<Grid item sx={{ marginLeft: 1 }}>
