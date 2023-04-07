@@ -24,12 +24,12 @@ import { isUniqueItem } from "../../utilities/typeGuards";
 
 interface ItemsListProps {
 	data: Data;
-	selectedClass: ClassName;
+	selectedClassName: ClassName;
 	itemType: ItemType;
 }
 
-export const ItemsList = ({ data, selectedClass, itemType }: ItemsListProps) => {
-	const items = data[selectedClass][itemType] as ItemType extends "Unique"
+export const ItemsList = ({ data, selectedClassName, itemType }: ItemsListProps) => {
+	const items = data[selectedClassName][itemType] as ItemType extends "Unique"
 		? Data[ClassName]["Unique"]
 		: Data[ClassName]["Legendary"];
 	const excludedCategories = ["category", "name", "values"];

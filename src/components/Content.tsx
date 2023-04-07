@@ -4,12 +4,12 @@ import { ItemsList } from "./item-list/ItemList";
 
 interface ContentProps {
 	data: Data;
-	selectedClass: ClassName;
+	selectedClassName: ClassName;
 	selectedItemType: ItemType;
 }
 
-export const Content = ({ data, selectedClass, selectedItemType }: ContentProps) => {
-	if (!selectedClass) {
+export const Content = ({ data, selectedClassName, selectedItemType }: ContentProps) => {
+	if (!selectedClassName) {
 		return (
 			<Container>
 				<Typography variant="h1">{"Select a class"}</Typography>
@@ -24,5 +24,5 @@ export const Content = ({ data, selectedClass, selectedItemType }: ContentProps)
 			</Container>
 		);
 
-	return <ItemsList data={data} selectedClass={selectedClass} itemType={selectedItemType} />;
+	return <ItemsList data={data} selectedClassName={selectedClassName} itemType={selectedItemType} />;
 };

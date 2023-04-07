@@ -6,7 +6,7 @@ import { ClassName, Data, ItemType } from "./types/types";
 import { useState } from "react";
 
 function App() {
-	const [selectedClass, setSelectedClass] = useState<ClassName>("Barbarian");
+	const [selectedClassName, setSelectedClassName] = useState<ClassName>("Barbarian");
 	const [selectedItemType, setSelectedItemType] = useState<ItemType>("Unique");
 	const data: Data | null = useFetchJsonData("dataminedData.json");
 
@@ -14,7 +14,7 @@ function App() {
 	const itemOptions: ItemType[] = ["Legendary", "Unique"];
 
 	const handleOnClickClassButton = (_e: React.MouseEvent<HTMLElement, MouseEvent>, newValue: ClassName) => {
-		setSelectedClass(newValue);
+		setSelectedClassName(newValue);
 	};
 
 	const handleOnClickItemButton = (_e: React.MouseEvent<HTMLElement, MouseEvent>, newValue: ItemType) => {
@@ -26,14 +26,14 @@ function App() {
 	return (
 		<div className="App">
 			<Controls
-				selectedClass={selectedClass}
-				selectedItemType={selectedItemType}
-				setSelectedItemType={handleOnClickItemButton}
-				onChange={handleOnClickClassButton}
-				options={classOptions}
+				classOptions={classOptions}
+				handleOnClickItemButton={handleOnClickItemButton}
+				handleOnClickClassButton={handleOnClickClassButton}
 				itemOptions={itemOptions}
+				selectedClassName={selectedClassName}
+				selectedItemType={selectedItemType}
 			/>
-			<Content data={data} selectedClass={selectedClass} selectedItemType={selectedItemType} />
+			<Content data={data} selectedClassName={selectedClassName} selectedItemType={selectedItemType} />
 		</div>
 	);
 }

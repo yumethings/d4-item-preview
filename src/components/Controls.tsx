@@ -6,21 +6,21 @@ import { TimerInfo } from "./TimerInfo";
 import { OptionToggleButtonGroup } from "./OptionToggleButtonGroup";
 
 interface ControlsProps {
-	onChange: (_e: React.MouseEvent<HTMLElement, MouseEvent>, newValue: ClassName) => void;
-	options: ClassName[];
-	selectedClass: ClassName;
-	selectedItemType: ItemType;
-	setSelectedItemType: (_e: React.MouseEvent<HTMLElement, MouseEvent>, newValue: ItemType) => void;
+	classOptions: ClassName[];
+	handleOnClickClassButton: (_e: React.MouseEvent<HTMLElement, MouseEvent>, newValue: ClassName) => void;
+	handleOnClickItemButton: (_e: React.MouseEvent<HTMLElement, MouseEvent>, newValue: ItemType) => void;
 	itemOptions: ItemType[];
+	selectedClassName: ClassName;
+	selectedItemType: ItemType;
 }
 
 export const Controls = ({
-	onChange,
-	options,
-	selectedClass,
-	selectedItemType,
-	setSelectedItemType,
+	classOptions,
+	handleOnClickItemButton,
+	handleOnClickClassButton,
 	itemOptions,
+	selectedClassName,
+	selectedItemType,
 }: ControlsProps) => {
 	const { themeMode, toggleThemeMode } = useThemeContext();
 
@@ -32,7 +32,11 @@ export const Controls = ({
 						<TimerInfo />
 					</Grid>
 					<Grid item>
-						<OptionToggleButtonGroup value={selectedClass} options={options} onChange={onChange} />
+						<OptionToggleButtonGroup
+							value={selectedClassName}
+							options={classOptions}
+							onChange={handleOnClickClassButton}
+						/>
 					</Grid>
 					<Grid item>
 						<IconButton sx={{ margin: 1 }} onClick={toggleThemeMode} color="inherit">
@@ -40,9 +44,13 @@ export const Controls = ({
 						</IconButton>
 					</Grid>
 				</Stack>
-				{selectedClass && (
+				{selectedClassName && (
 					<Grid item>
-						<OptionToggleButtonGroup value={selectedItemType} options={itemOptions} onChange={setSelectedItemType} />
+						<OptionToggleButtonGroup
+							value={selectedItemType}
+							options={itemOptions}
+							onChange={handleOnClickItemButton}
+						/>
 					</Grid>
 				)}
 			</Stack>
