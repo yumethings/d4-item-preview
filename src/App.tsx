@@ -2,22 +2,22 @@ import "./App.css";
 import { Content } from "./components/Content";
 import { Controls } from "./components/Controls";
 import { useFetchJsonData } from "./hooks/useFetchJsonData";
-import { Class, Data, Item } from "./types/types";
+import { ClassName, Data, ItemType } from "./types/types";
 import { useState } from "react";
 
 function App() {
-	const [selectedClass, setSelectedClass] = useState<Class>("Barbarian");
-	const [selectedItemType, setSelectedItemType] = useState<Item>("Unique");
+	const [selectedClass, setSelectedClass] = useState<ClassName>("Barbarian");
+	const [selectedItemType, setSelectedItemType] = useState<ItemType>("Unique");
 	const data: Data | null = useFetchJsonData("dataminedData.json");
 
-	const classOptions: Class[] = ["Barbarian", "Druid", "Generic", "Necromancer", "Rogue", "Sorcerer"];
-	const itemOptions: Item[] = ["Legendary", "Unique"];
+	const classOptions: ClassName[] = ["Barbarian", "Druid", "Generic", "Necromancer", "Rogue", "Sorcerer"];
+	const itemOptions: ItemType[] = ["Legendary", "Unique"];
 
-	const handleOnClickClassButton = (_e: React.MouseEvent<HTMLElement, MouseEvent>, newValue: Class) => {
+	const handleOnClickClassButton = (_e: React.MouseEvent<HTMLElement, MouseEvent>, newValue: ClassName) => {
 		setSelectedClass(newValue);
 	};
 
-	const handleOnClickItemButton = (_e: React.MouseEvent<HTMLElement, MouseEvent>, newValue: Item) => {
+	const handleOnClickItemButton = (_e: React.MouseEvent<HTMLElement, MouseEvent>, newValue: ItemType) => {
 		setSelectedItemType(newValue);
 	};
 

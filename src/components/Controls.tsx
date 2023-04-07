@@ -1,18 +1,18 @@
 import { Grid, IconButton, Paper, Stack, ToggleButton, ToggleButtonGroup, Typography } from "@mui/material";
 import { NightsStay, LightModeRounded } from "@mui/icons-material";
-import { Class, Item } from "../types/types";
+import { ClassName, ItemType } from "../types/types";
 import { useThemeContext } from "../context/ThemeContext";
-import { today } from "../utilities/dateUtils";
+import { today } from "../utilities/dateUtilities";
 import { differenceInCalendarDays } from "date-fns";
 import { useEffect, useState } from "react";
 
 interface ControlsProps {
-	onChange: (_e: React.MouseEvent<HTMLElement, MouseEvent>, newValue: Class) => void;
-	options: Class[];
-	selectedClass: Class;
-	selectedItemType: Item;
-	setSelectedItemType: (_e: React.MouseEvent<HTMLElement, MouseEvent>, newValue: Item) => void;
-	itemOptions: Item[];
+	onChange: (_e: React.MouseEvent<HTMLElement, MouseEvent>, newValue: ClassName) => void;
+	options: ClassName[];
+	selectedClass: ClassName;
+	selectedItemType: ItemType;
+	setSelectedItemType: (_e: React.MouseEvent<HTMLElement, MouseEvent>, newValue: ItemType) => void;
+	itemOptions: ItemType[];
 }
 
 export const Controls = ({
