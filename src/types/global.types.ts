@@ -1,6 +1,6 @@
 export type Data = typeof data;
 export type ClassName = keyof Data;
-export type ItemType = keyof Omit<Data[ClassName], "Paragon (Node)">;
+export type ItemRarity = keyof Omit<Data[ClassName], "Paragon (Node)">;
 
 export type ItemValue = {
 	category: string | number;
@@ -15,6 +15,8 @@ export type UniqueItem = ItemValue & {
 	affixes: string[];
 	flavor: string;
 };
+
+export type ItemData = ItemValue | UniqueItem;
 
 const data = {
 	Barbarian: {

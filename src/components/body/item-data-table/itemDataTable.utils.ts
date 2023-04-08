@@ -7,7 +7,7 @@ import {
 	removePipesAroundNumbers,
 	removePipesAroundPercent,
 	VariableKeys,
-} from "../../utilities/stringUtilities";
+} from "../../../utilities/stringUtilities";
 
 export const processValue = (value: string | number) => {
 	return replaceSubString(

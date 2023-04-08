@@ -1,27 +1,27 @@
 import { Grid, IconButton, Paper, Stack } from "@mui/material";
 import { NightsStay, LightModeRounded } from "@mui/icons-material";
-import { ClassName, ItemType } from "../types/types";
-import { useThemeContext } from "../context/ThemeContext";
+import { ClassName, ItemRarity } from "../../../types/global.types";
+import { useThemeContext } from "../../../context/ThemeContext";
 import { TimerInfo } from "./TimerInfo";
-import { OptionToggleButtonGroup } from "./OptionToggleButtonGroup";
+import { OptionToggleButtonGroup } from "../shared/OptionToggleButtonGroup";
 
-interface ControlsProps {
+interface ControlPanelProps {
 	classOptions: ClassName[];
 	handleOnClickClassButton: (_e: React.MouseEvent<HTMLElement, MouseEvent>, newValue: ClassName) => void;
-	handleOnClickItemButton: (_e: React.MouseEvent<HTMLElement, MouseEvent>, newValue: ItemType) => void;
-	itemOptions: ItemType[];
+	handleOnClickItemButton: (_e: React.MouseEvent<HTMLElement, MouseEvent>, newValue: ItemRarity) => void;
+	itemOptions: ItemRarity[];
 	selectedClassName: ClassName;
-	selectedItemType: ItemType;
+	selectedItemRarity: ItemRarity;
 }
 
-export const Controls = ({
+export const ControlPanel = ({
 	classOptions,
 	handleOnClickItemButton,
 	handleOnClickClassButton,
 	itemOptions,
 	selectedClassName,
-	selectedItemType,
-}: ControlsProps) => {
+	selectedItemRarity,
+}: ControlPanelProps) => {
 	const { themeMode, toggleThemeMode } = useThemeContext();
 
 	return (
@@ -47,7 +47,7 @@ export const Controls = ({
 				{selectedClassName && (
 					<Grid item>
 						<OptionToggleButtonGroup
-							value={selectedItemType}
+							value={selectedItemRarity}
 							options={itemOptions}
 							onChange={handleOnClickItemButton}
 						/>

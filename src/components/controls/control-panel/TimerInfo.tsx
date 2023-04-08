@@ -1,7 +1,7 @@
 import { Paper, Typography } from "@mui/material";
 import { differenceInCalendarDays } from "date-fns";
 import { useState, useEffect } from "react";
-import { today } from "../utilities/dateUtilities";
+import { today } from "../../../utilities/dateUtilities";
 
 export const TimerInfo = () => {
 	const [daysLeftUntilRelease, setDaysLeftUntilRelease] = useState<number>(

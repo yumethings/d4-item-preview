@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Data } from "../types/types";
+import { Data } from "../types/global.types";
 
 export const useFetchJsonData = (filename: string) => {
 	const [data, setData] = useState<Data | null>(null);
