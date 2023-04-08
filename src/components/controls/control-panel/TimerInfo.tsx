@@ -10,8 +10,9 @@ export const TimerInfo = () => {
 	const [counts, setCounts] = useState<number>(0);
 
 	useEffect(() => {
+		const launchDate = new Date("2023-06-02");
 		const id = setInterval(() => {
-			setDaysLeftUntilRelease(differenceInCalendarDays(new Date("2023-06-02"), today()));
+			setDaysLeftUntilRelease(differenceInCalendarDays(launchDate, today()));
 		}, 3600000);
 
 		return () => {
