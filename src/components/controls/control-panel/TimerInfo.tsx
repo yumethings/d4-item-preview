@@ -1,4 +1,4 @@
-import { Paper, Typography } from "@mui/material";
+import { Box, Paper, Typography } from "@mui/material";
 import { differenceInCalendarDays } from "date-fns";
 import { useState, useEffect } from "react";
 import { today } from "../../../utilities/dateUtilities";
@@ -30,8 +30,8 @@ export const TimerInfo = () => {
 
 	return (
 		<Paper elevation={3} sx={{ padding: 1 }}>
-			<Typography>{`${daysLeftUntilRelease} days left until early-access`}</Typography>
-			<Typography>{`You have been on this page for ${counts} seconds`}</Typography>
+			<Typography>{`${daysLeftUntilRelease} days left until early-access.`}</Typography>
+			<Typography>{`You have been on this page for ${counts} seconds.`}</Typography>
 		</Paper>
 	);
 };
