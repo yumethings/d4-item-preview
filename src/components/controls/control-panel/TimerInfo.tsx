@@ -30,7 +30,7 @@ export const TimerInfo = () => {
 	}, []);
 
 	return (
-		<Paper elevation={3} sx={{ padding: 1 }}>
+		<Paper elevation={3} sx={{ padding: 1, mb: 1 }}>
 			<Typography>{`${daysLeftUntilRelease} days left until early-access.`}</Typography>
 			<Divider variant="middle" />
 			<Typography>{`You have been on this page for ${counts} seconds.`}</Typography>
