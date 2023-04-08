@@ -1,7 +1,15 @@
 import { createTheme } from "@mui/material";
 import { darkModeShadows } from "./darkModeShadows";
 
-const defaultTheme = createTheme({});
+const defaultTheme = createTheme({
+	components: {
+		MuiStack: {
+			defaultProps: {
+				spacing: 1,
+			},
+		},
+	},
+});
 
 export const lightTheme = createTheme({
 	...defaultTheme,
