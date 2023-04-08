@@ -36,6 +36,7 @@ export const ControlPanel = ({
 							value={selectedClassName}
 							options={classOptions}
 							onChange={handleOnClickClassButton}
+							toggleButtonGroupProps={{ sx: { flexWrap: "wrap", justifyContent: "center" } }}
 						/>
 					</Grid>
 					<Grid item>
@@ -50,6 +51,7 @@ export const ControlPanel = ({
 							value={selectedItemRarity}
 							options={itemOptions}
 							onChange={handleOnClickItemButton}
+							toggleButtonGroupProps={{ sx: { marginBottom: 1 } }}
 						/>
 					</Grid>
 				)}
