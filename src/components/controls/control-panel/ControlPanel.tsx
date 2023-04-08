@@ -23,9 +23,9 @@ export const ControlPanel = ({
 	selectedItemRarity,
 }: ControlPanelProps) => {
 	const { themeMode, toggleThemeMode } = useThemeContext();
-	const itemsInGrid = 3;
+	const ITEMS_IN_GRID = 3;
 	const xs = 12;
-	const sm = xs / itemsInGrid;
+	const sm = xs / ITEMS_IN_GRID;
 
 	return (
 		<Paper elevation={3} sx={{ marginBottom: 3 }}>
