@@ -1,6 +1,7 @@
 import { Container, Grid } from "@mui/material";
 import { ClassName, Data, ItemRarity } from "../../../types/global.types";
 import { CardItem } from "./CardItem";
+import { sortAlphaNumericallyInObjects } from "../../../utilities/generalUtilities";
 
 interface CardListProps {
 	data: Data;
@@ -15,11 +16,13 @@ export const CardList = ({ data, selectedClassName, selectedItemRarity }: CardLi
 
 	return (
 		<Container>
-			{Object.entries(items).map(([key, value], idx) => (
-				<Grid item key={idx}>
-					<CardItem key={key} itemType={key} itemData={value} />
-				</Grid>
-			))}
+			{Object.entries(items)
+				.sort((a, b) => sortAlphaNumericallyInObjects(a[1], b[1], "name"))
+				.map(([key, value], idx) => (
+					<Grid item key={idx}>
+						<CardItem key={key} itemType={key} itemData={value} />
+					</Grid>
+				))}
 		</Container>
 	);
 };
